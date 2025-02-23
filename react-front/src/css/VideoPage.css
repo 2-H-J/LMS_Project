@@ -1,0 +1,119 @@
+/* 전체 화면 배경 */
+.video-fullscreen-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 상단 네비게이션 바 */
+.video-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+}
+
+/* 뒤로가기 버튼 */
+.back-button {
+    position: absolute;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background: url('/public/img/icon_Go_back.png');
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    transform: rotate(180deg);
+    filter: invert(1);
+}
+
+.back-button:hover {
+    opacity: 0.7;
+}
+
+/* 강의 정보 텍스트 (가로 정렬) */
+.video-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1.4rem;
+    white-space: nowrap;
+}
+
+/* 유튜브 영상 컨테이너 */
+.video-iframe-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+}
+
+.youtube-iframe{
+    width: 100%;
+    height: 100%;
+}
+
+/* 네비게이션 버튼 컨테이너 */
+.video-navigation {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+/* 이전/다음 영상 버튼 공통 */
+.nav-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* 버튼 호버 효과 */
+.nav-button:hover {
+    opacity: 0.7;
+}
+
+/* 버튼이 비활성화된 경우 흐리게 표시 */
+.nav-button[style*="opacity: 0.3"] {
+    cursor: default;
+}
+
+/* 화살표 아이콘 공통 */
+.nav-arrow {
+    width: 20px;
+    height: 20px;
+    background: url('/public/img/icon_right_left_arrow.png') no-repeat center;
+    background-size: contain;
+    filter: invert(1); /* 내부를 흰색으로 변경 */
+}
+
+/* 이전 영상 버튼의 화살표 방향 변경 */
+.nav-button.prev .nav-arrow {
+    transform: rotate(180deg);
+}
+

@@ -1,0 +1,316 @@
+.chapter-list {
+    margin-top: 20px;
+}
+
+.chapter {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 챕터 헤더 */
+.chapter-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 0px;
+    gap: 20px;
+}
+
+/* 챕터명과 강의 개수를 정렬 */
+.chapter-header h3 {
+    flex-grow: 1;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 500px;
+}
+
+/* 강의 개수 컨테이너 */
+.lecture-count-container {
+    width: 260px;  /* 고정된 너비 */
+    text-align: right;
+    flex-shrink: 0; /* 크기 변경 방지 */
+}
+
+/* 챕터 강의 개수 */
+.lecture-count {
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+}
+
+.add-video-container,
+.add-chapter-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    width: 100%;
+}
+
+
+/* 챕터 추가 입력창 스타일 수정 */
+.add-chapter-input, .update-chapter-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 500px; /* 최대 너비 제한 */
+}
+
+/* 챕터 제목 입력 필드 */
+.add-chapter-input input, .update-chapter-container input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    max-width: 400px; /* 입력 필드 크기 조정 */
+    height: 35px;
+}
+
+/* 챕터 등록 버튼 */
+.confirm-add-chapter, .update-chapter-btn {
+    background-color: #ff8c00;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.confirm-add-chapter:hover, .update-chapter-btn:hover {
+    background-color: #e28411;
+}
+
+/* 챕터 취소 버튼 */
+.cancel-add-chapter, .cancel-update-chapter-btn {
+    background-color: #ddd;
+    color: black;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.cancel-add-chapter:hover, .cancel-update-chapter-btn:hover {
+    background-color: #bbb;
+}
+
+
+/* ------------------------------------------------------- */
+
+
+
+.instructor-actions {
+    width: 352px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.instructor-actions button {
+    background-color: #fff;
+    border: 1px solid #ff8c00;
+    color: #ff8c00;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.instructor-actions button:hover {
+    background-color: #ff8c00;
+    color: #fff;
+}
+
+/* 동영상 목록 */
+.video-list {
+    margin-top: 10px;
+    padding-left: 15px;
+}
+
+/* 개별 비디오 아이템 */
+.video-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 15px;
+    gap: 10px;
+}
+
+/* 영상 제목 스타일 */
+.video-title {
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 500px; /* 영상 제목 최대 너비 설정 */
+    flex-grow: 1;
+    width: 485px;
+}
+
+/* 영상 시간 스타일 */
+.video-duration {
+    width: 250px;
+    font-size: 14px;
+    color: #555;
+    text-align: right;
+    min-width: 80px; /* 고정된 최소 너비 설정 */
+    font-weight: bold;
+    flex-shrink: 0; /* 크기 변경 방지 */
+}
+
+/* 버튼 그룹 */
+.instructor-video-controls {
+    display: flex;
+    width: 352px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+    margin-right: 15px;
+}
+
+/* 버튼 스타일 */
+.instructor-video-controls button {
+    background-color: #fff;
+    border: 1px solid #ff8c00;
+    color: #ff8c00;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.instructor-video-controls button:hover {
+    background-color: #ff8c00;
+    color: #fff;
+}
+
+
+.add-chapter,
+.add-video {
+    background-color: #fff;
+    color: #ff8c00;
+    padding: 10px 10px;
+    margin-top: 10px;
+    border: 1px solid #ff8c00;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.add-chapter:hover,
+.add-video:hover {
+    background-color: #ff8c00;
+    color: #fff;
+}
+
+/* 영상 수정*/
+.update-video-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 10px;
+}
+
+.update-video-container input {
+    flex: 1;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.2s ease-in-out;
+    height: 40px;
+}
+
+.update-video-container input:focus {
+    border-color: #ff8c00;
+    box-shadow: 0 0 5px rgba(255, 140, 0, 0.3);
+}
+
+/* 버튼 컨테이너 */
+.update-video-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+/* 저장 버튼*/
+.update-video-buttons .save-video-btn, .cancel-video-btn {
+    background-color: white;
+    border: 1px solid #ff8c00;
+    color: #ff8c00;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.update-video-buttons .save-video-btn:hover, .cancel-video-btn:hover{
+    background-color: #ff8c00;
+    color: white;
+}
+
+
+
+.start-quiz {
+    margin-left: 350px;
+}
+
+/* 퀴즈 시작 버튼 */
+.start-quiz,
+.watch-video {
+    background-color: #fff;
+    border: 1px solid #ff8c00;
+    color: #ff8c00;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.start-quiz:hover,
+.watch-video:hover {
+    background-color: #ff8c00;
+    color: #fff;
+}
+
+.watch-video:disabled {
+    background-color: #f0f0f0;
+    color: #ccc;
+    border: 2px solid #ccc;
+    cursor: not-allowed;
+}
+.start-quiz:disabled {
+    background-color: #d3d3d3; /* 연한 회색 */
+    color: #808080; /* 글씨도 회색 */
+    cursor: not-allowed; /* 마우스 커서를 비활성화된 상태로 */
+    opacity: 0.6; /* 약간 흐리게 */
+  }

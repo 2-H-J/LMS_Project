@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kh.mapper.VideoMapper">
+
+    <resultMap id="VideoMap" type="com.kh.dto.VideoDTO">
+        <result column="video_number" property="videoNumber"/>
+        <result column="chapter_number" property="chapterNumber"/>
+        <result column="class_number" property="classNumber"/>
+        <result column="video_title" property="videoTitle" jdbcType="VARCHAR"/>
+        <result column="video_id" property="videoId" jdbcType="VARCHAR"/>
+        <result column="video_duration" property="videoDuration"/>
+        <result column="video_order_number" property="videoOrderNumber"/>
+        <result column="video_create_time" property="videoCreateTime"/>
+    </resultMap>
+
+    <!-- 해당 챕터의 영상 조회 -->
+    <select id="selectVideo" parameterType="int" resultMap="VideoMap">
+        SELECT 
+            video_number, 
+            chapter_number, 
+            video_title, 
+            video_id, 
+            video_duration, 
+            video_order_number, 
+            video_create_time
+        FROM VIDEO
+        WHERE chapter_number = #{chapterNumber}
+        ORDER BY video_order_number ASC
+    </select>
+
+    <!-- 유튜브 영상 정보 저장 -->
+    <insert id="insertVideo" parameterType="com.kh.dto.VideoDTO">
+        INSERT INTO VIDEO (video_number, chapter_number, video_title, video_id, video_duration, video_order_number, video_create_time)
+        VALUES (VIDEO_NUMBER_SEQ.NEXTVAL, #{chapterNumber}, #{videoTitle}, #{videoId}, #{videoDuration}, 
+               (SELECT COALESCE(MAX(video_order_number), 0) + 1 FROM VIDEO WHERE chapter_number = #{chapterNumber}), 
+                SYSDATE)
+    </insert>
+
+    <!-- 특정 videoNumber로 영상 조회 -->
+    <select id="getVideoByNumber" parameterType="int" resultMap="VideoMap">
+        SELECT 
+            v.video_number, 
+            v.chapter_number, 
+            ch.class_number,
+            cl.title AS classTitle,  
+            ch.chapter_name AS chapterTitle,
+            v.video_title, 
+            v.video_id, 
+            v.video_duration, 
+            v.video_order_number, 
+            v.video_create_time
+        FROM VIDEO v
+        JOIN CHAPTER ch ON v.chapter_number = ch.chapter_number
+        JOIN CLASS cl ON ch.class_number = cl.class_number
+        WHERE v.video_number = #{videoNumber}
+    </select>
+
+    <!-- 같은 강의 내에서 현재 영상 기준 이전 영상 -->
+    <select id="getPrevVideo" parameterType="map" resultType="int">
+        SELECT v.video_number
+        FROM VIDEO v
+        JOIN CHAPTER ch ON v.chapter_number = ch.chapter_number
+        WHERE ch.class_number = #{classNumber}
+        AND (ch.chapter_number &lt; #{chapterNumber} 
+             OR (ch.chapter_number = #{chapterNumber} AND v.video_order_number &lt; #{videoOrderNumber}))
+        ORDER BY ch.chapter_number DESC, v.video_order_number DESC
+        FETCH FIRST 1 ROW ONLY
+    </select>
+
+    <!-- 같은 강의 내에서 현재 영상 기준 다음 영상 -->
+    <select id="getNextVideo" parameterType="map" resultType="int">
+        SELECT v.video_number
+        FROM VIDEO v
+        JOIN CHAPTER ch ON v.chapter_number = ch.chapter_number
+        WHERE ch.class_number = #{classNumber}
+        AND (ch.chapter_number &gt; #{chapterNumber} 
+             OR (ch.chapter_number = #{chapterNumber} AND v.video_order_number &gt; #{videoOrderNumber}))
+        ORDER BY ch.chapter_number ASC, v.video_order_number ASC
+        FETCH FIRST 1 ROW ONLY
+    </select>
+
+    <!-- 영상 수정 -->
+    <update id="updateVideo">
+        UPDATE VIDEO
+        SET video_title = #{videoTitle}
+            <if test="videoId != null">, video_id = #{videoId}</if>
+            <if test="videoDuration != null">, video_duration = #{videoDuration}</if>
+        WHERE video_number = #{videoNumber}
+    </update>
+
+    <!-- 영상 삭제 -->
+    <delete id="deleteVideo">
+        DELETE FROM VIDEO WHERE video_number = #{videoNumber}
+    </delete>
+</mapper>

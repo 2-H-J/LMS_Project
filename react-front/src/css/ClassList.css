@@ -1,0 +1,219 @@
+/* 전체 컨테이너 */
+.class-list-container {
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 40px 20px;
+  font-family: "Arial", sans-serif;
+  color: #333;
+}
+
+/* 헤더 */
+/* .class-list-container >  */.class-list-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* .class-list-container >  */.class-list-header > h2 {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+/* .class-list-container >  */.class-list-header > h2 > strong {
+  font-weight: bold;
+}
+
+/* 필터 */
+/* .class-list-container >  */.class-list-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px auto;
+  max-width: 1140px;
+}
+
+/* .class-list-container > .class-list-filter >  */.class-insert-button-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 0;
+}
+
+/* .class-list-container > .class-list-filter > .class-insert-button-container >  */.class-insert-button {
+  background-color: #FF8D00;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* .class-list-container > .class-list-filter > .class-insert-button-container >  */.class-insert-button:hover {
+  background-color: #e57c00;
+}
+
+/* .class-list-container > .class-list-filter >  */.class-list-dropdown-group {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 300px;
+  margin-right: 0px;
+}
+
+/* .class-list-container > .class-list-filter > .class-list-dropdown-group >  */.class-list-dropdown {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #fff;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-right: 0px;
+}
+
+/* .class-list-container > .class-list-filter > .class-list-dropdown-group >  */.class-list-dropdown:hover {
+  border-color: #ffa500;
+}
+
+/* 그리드 컨테이너 */
+/* .class-list-container >  */.class-list-grid-container {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 40px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden; 
+}
+/* 그리드 */
+/* .class-list-container > .class-list-grid-container >  */.class-list-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* 카드 */
+/* .class-list-container > .class-list-grid-container > .class-list-grid >  */.class-list-card {
+  width: 90%;
+  height: 310px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  overflow: hidden;
+  position: relative;
+  padding: 15px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* .class-list-container > .class-list-grid-container > .class-list-grid >  */.class-list-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 썸네일 */
+/* .class-list-container > .class-list-grid-container > .class-list-grid > .class-list-card >  */.class-list-thumbnail {
+  width: 100%;
+  height: 140px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* .class-list-container > .class-list-grid-container > .class-list-grid > .class-list-card >  */.class-list-thumbnail > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 카드 세부 정보 */
+/* .class-list-container > .class-list-grid-container > .class-list-grid > .class-list-card >  */.class-list-details {
+  text-align: left;
+  margin-top: 10px;
+}
+
+/* 카테고리 */
+.class-list-category {
+  display: inline-block;
+  background: #fff8e8;
+  color: #ff8d00;
+  padding: 5px 10px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* 카드 제목 */
+/* .class-list-container > .class-list-grid-container > .class-list-grid > .class-list-card > .class-list-details >  */.class-list-title {
+  font-size: 17px;
+  margin: 10px 0;
+  font-weight: bold;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  position: relative;
+  cursor: pointer;
+}
+
+/* .class-list-container > .class-list-grid-container > .class-list-grid > .class-list-card > .class-list-details >  */.class-list-title:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  z-index: 100;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: none;
+}
+
+/* 강사 이름 */
+/* .class-list-container > .class-list-grid-container > .class-list-grid > .class-list-card > .class-list-details >  */.class-list-instructor {
+  font-size: 15px;
+  color: #555;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* 생성일 */
+/* .class-list-container > .class-list-grid-container > .class-list-grid > .class-list-card > .class-list-details >  */.class-list-date {
+  font-size: 14px;
+  color: #999;
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+}
+
+/* 더 보기 버튼 */
+/* .class-list-container > */ .class-list-load-more {
+  margin: 20px auto;
+  display: block;
+  padding: 12px 25px;
+  border: 1px solid #ffa500;
+  background-color: #fff;
+  color: #ffa500;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* .class-list-container >  */.class-list-load-more:hover {
+  background-color: #ffa500;
+  color: #fff;
+}

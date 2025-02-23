@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kh.mapper.UsersMapper">
+
+    <!-- 로그인 -->
+    <select id="findUserByIdAndPassword" parameterType="map" resultType="com.kh.dto.UsersDTO">
+        select * from users where id like #{id} and password = STANDARD_HASH(#{password},'SHA512')
+    </select>
+
+    <!-- 회원 가입 -->
+    <insert id="insertUser" parameterType="com.kh.dto.UsersDTO">
+        insert into users(uno, id, nickname, password, name, email, phone, grade)
+        values(users_uno_seq.NEXTVAL, #{id}, #{nickname}, standard_hash(#{password},'SHA512'), #{name}, #{email}, #{phone}, #{grade})
+    </insert>
+
+    <!-- 아이디 중복 체크 -->
+    <select id="checkIdExists" resultType="int">
+        SELECT COUNT(*)
+        FROM users
+        WHERE id = #{id}
+    </select>
+
+    <!-- 닉네임 중복 체크 -->
+    <select id="checkNickNameExists" resultType="int">
+        SELECT COUNT(*)
+        FROM users
+        WHERE nickname = #{nickname}
+    </select>
+
+    <select id="checkKakaoNickname" resultType="int">
+        SELECT COUNT(*)
+        FROM kakao_users
+        WHERE nickname = #{nickname}
+    </select>
+
+    <update id="updateUser" parameterType="com.kh.dto.UsersDTO">
+        UPDATE USERS SET 
+        NICKNAME = #{nickname},
+        NAME = #{name},
+        EMAIL = #{email},
+        PHONE = #{phone},
+        GRADE = #{grade}
+        WHERE UNO = #{uno};
+    </update>
+
+    <select id="findUserByUno" parameterType="String" resultType="com.kh.dto.UsersDTO">
+        SELECT * FROM USERS u WHERE u.UNO = #{v}
+    </select>
+
+    <update id="updateprofileimg" parameterType="com.kh.dto.UsersDTO">
+    UPDATE USERS 
+    SET PROFILEIMG = 
+    <if test="profileimg != null">
+        #{profileimg, jdbcType=BLOB}
+    </if>
+    <if test="profileimg == null">
+        NULL
+    </if>
+    WHERE UNO = #{uno}
+</update>
+
+
+    <update id="updateUserInfo" parameterType="map">
+        UPDATE USERS
+        <set>
+            <if test="nickname != null">NICKNAME = #{nickname},</if>
+            <if test="name != null">NAME = #{name},</if>
+            <if test="email != null">EMAIL = #{email},</if>
+            <if test="phone != null">PHONE = #{phone},</if>
+        </set>
+        WHERE UNO = #{uno}
+    </update>
+
+    <delete id="deleteUno" parameterType="String">
+        DELETE FROM USERS
+        WHERE UNO = #{value}
+    </delete>
+
+    <select id="checkUser" parameterType="map" resultType="int">
+        SELECT COUNT(*) 
+        FROM users 
+        WHERE uno = #{uno} AND id = #{id}
+        AND password = STANDARD_HASH(#{password}, 'SHA512')
+    </select>
+
+    <!-- email 체크 -->
+    <select id="checkEmail" resultType="int">
+        select count(*) from users where email = #{email}
+    </select>
+
+    <!-- email로 유저 조회 -->
+    <select id="findUserByEmail" resultType="com.kh.dto.UsersDTO">
+        select * from users where email = #{email}
+    </select>
+
+    <!-- 비밀번호 변경 -->
+    <update id="updatePassword" parameterType="map">
+        update users set password = standard_hash(#{newpassword},'SHA512') where uno = #{uno}
+    </update>
+
+</mapper>

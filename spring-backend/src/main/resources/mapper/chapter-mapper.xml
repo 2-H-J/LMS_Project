@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kh.mapper.ChapterMapper">
+
+    <resultMap id="ChapterMap" type="com.kh.dto.ChapterDTO">
+        <id column="CHAPTER_NUMBER" property="chapterNumber"/>
+        <result column="CLASS_NUMBER" property="classNumber"/>
+        <result column="CHAPTER_NAME" property="chapterName"/>
+        <result column="CHAPTER_CREATE_TIME" property="chapterCreateTime"/>
+        <result column="QUIZ_COUNT" property="quizCount"/>
+    </resultMap>
+
+    <!-- 특정 강의의 챕터 목록(퀴즈카운트 추가 view 이용) -->
+    <select id="selectChapter" parameterType="int" resultMap="ChapterMap">
+        SELECT * FROM chapter_with_quiz_count WHERE class_number = #{classNumber} ORDER BY CHAPTER_CREATE_TIME ASC
+    </select>
+
+    <!-- 새 챕터 번호 생성  -->
+    <select id="selectChapterNo" resultType="int">
+        SELECT CHAPTER_NUMBER_SEQ.NEXTVAL FROM dual
+    </select>
+
+    <!-- 챕터 등록 -->
+    <insert id="insertChapter" parameterType="com.kh.dto.ChapterDTO">
+        INSERT INTO CHAPTER (CHAPTER_NUMBER, CHAPTER_NAME, CHAPTER_CREATE_TIME, CLASS_NUMBER)
+        VALUES (#{chapterNumber}, #{chapterName}, SYSDATE, #{classNumber})
+    </insert>
+
+    <!-- 챕터 수정 -->
+    <update id="updateChapterName">
+        UPDATE CHAPTER
+        SET CHAPTER_NAME = #{chapterName}
+        WHERE CHAPTER_NUMBER = #{chapterNumber}
+    </update>
+
+    <!-- 챕터 내 영상 개수 조회 -->
+    <select id="getVideoCount" resultType="int">
+        SELECT COUNT(*) FROM VIDEO WHERE CHAPTER_NUMBER = #{chapterNumber}
+    </select>
+
+    <!-- 챕터 내 퀴즈 개수 조회 -->
+    <select id="getQuizCount" resultType="int">
+        SELECT COUNT(*) FROM QUIZ WHERE CHAPTER_NUMBER = #{chapterNumber}
+    </select>
+
+    <!-- 챕터 내 영상 삭제 -->
+    <delete id="deleteVideosByChapter">
+        DELETE FROM VIDEO WHERE CHAPTER_NUMBER = #{chapterNumber}
+    </delete>
+
+    <!-- 챕터 내 퀴즈 삭제 -->
+    <delete id="deleteQuizzesByChapter">
+        DELETE FROM QUIZ WHERE CHAPTER_NUMBER = #{chapterNumber}
+    </delete>
+
+    <!-- 챕터 삭제 -->
+    <delete id="deleteChapter">
+        DELETE FROM CHAPTER WHERE CHAPTER_NUMBER = #{chapterNumber}
+    </delete>
+
+    <!-- 챕터 이름 가져오기 -->
+	<select id="getChapterName" parameterType="int" resultType="string">
+		select chapter_name from chapter where chapter_number = #{chapterNumber}
+	</select>
+
+</mapper>

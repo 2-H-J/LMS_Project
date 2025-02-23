@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kh.mapper.KakaoMapper">
+	<!-- DTO 매핑 -->
+    <resultMap type="com.kh.dto.KakaoDTO" id="kakaoMap">
+        <id column="uno" property="uno" />
+        <result column="id" property="kakaoId"/>
+        <result column="name" property="name"/>
+        <result column="nickname" property="nickname"/>
+        <result column="email" property="email"/>
+        <result column="phone" property="phone"/>
+        <result column="grade" property="grade"/>
+    </resultMap>
+    <!-- 카카오 아이디 체크 -->
+    <select id="checkKakaoId" resultType="int">
+    	select count(*) from users where id = #{kakaoId}
+    </select>
+    <!-- 카카오 로그인 -->
+    <select id="kakaoLogin" resultType="com.kh.dto.KakaoDTO">
+    	select * from users where id = #{kakaoId}
+    </select>
+    <insert id="insertKakaoUser" parameterType="com.kh.dto.KakaoDTO">
+    	insert into users(uno, id, nickname, name, email, phone, grade)
+		values(users_uno_seq.NEXTVAL, #{kakaoId}, #{nickname}, #{name}, #{email}, #{phone}, #{grade})
+    </insert>
+</mapper>

@@ -1,0 +1,169 @@
+.kakao-register {
+    background-image: url("../img/background.png");
+    background-size: cover;
+    /* 배경 이미지 크기를 화면에 맞게 조정 */
+    background-position: center;
+    /* 배경 이미지 위치를 중앙에 맞춤 */
+    margin: 0;
+    /* 기본 margin 제거 */
+    padding: 50px;
+    height: 100vh;
+    /* 화면 전체를 채우기 */
+}
+
+
+/* 기본 레이아웃 */
+.kakao-register .register_container {
+    width: 1200px;
+    margin: 0px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+/* 제목 */
+.kakao-register h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* 역할 선택 버튼 */
+.kakao-register .role-switch {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.kakao-register .role-btn {
+    width: 100px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    margin: 0 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.kakao-register .role-btn.active {
+    background-color: #ff9800;
+    color: #fff;
+}
+
+/* 왼쪽, 오른쪽 컨테이너 스타일 */
+.kakao-register .left_container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+}
+
+/* 폼 스타일 */
+.kakao-register .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.kakao-register .form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.kakao-register input {
+    width: 450px;
+    height: 50px;
+    padding: 10px;
+    border: 1px solid #777777;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* 필수 입력 문구 */
+.kakao-register .required-note {
+    font-size: 0.8rem;
+    color: #f44336;
+    margin-left: 150px;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+/* 버튼 컨테이너 */
+.kakao-register .btn-container {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    gap: 170px;
+}
+
+/* 회원가입 버튼 */
+.kakao-register .submit-btn,
+.kakao-register .cancel-btn {
+    width: 450px;
+    padding: 12px;
+    font-size: 1rem;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.kakao-register .check-duplicate-btn {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.kakao-register .submit-btn:hover,
+.kakao-register .cancel-btn:hover,
+.kakao-register .check-duplicate-btn:hover {
+    background-color: #e68900;
+}
+
+.kakao-register .register {
+    background-image: url("../img/background.png");
+    background-size: cover;
+    /* 배경 이미지 크기를 화면에 맞게 조정 */
+    background-position: center;
+    /* 배경 이미지 위치를 중앙에 맞춤 */
+    margin: 0;
+    /* 기본 margin 제거 */
+    padding: 50px;
+    height: 100vh;
+    /* 화면 전체를 채우기 */
+}
+
+.kakao-register .error-message {
+    color: red;
+}
+
+/* 반응형: 화면이 좁아지면 세로 정렬 */
+@media (max-width: 768px) {
+    .kakao-register #signupForm {
+        flex-direction: column;
+    }
+
+    .kakao-register .left_container{
+        width: 100%;
+    }
+}

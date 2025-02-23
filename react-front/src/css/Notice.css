@@ -1,0 +1,93 @@
+.notice-container {
+    width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.notice-add-button {
+    display: block;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    background-color: #ff8d00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.notice-list {
+    width: 100%;
+}
+
+.notice-item {
+    width: 100%;
+    background: #ffffff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.notice-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.notice-title {
+    width: 400px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.notice-date {
+    font-size: 12px;
+    color: #808080;
+}
+
+.arrow-icon {
+    width: 20px;
+    height: 20px;
+    background: url('/public/img/arrow_down.png') no-repeat center;
+    background-size: contain;
+    transition: transform 0.3s ease;
+}
+
+.arrow-icon.expanded {
+    transform: rotate(180deg);
+}
+
+.notice-content {
+    padding: 30px 100px 30px 50px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+    font-size: 16px;
+    line-height: 1.5;
+    position: relative;
+}
+
+.notice-delete-button {
+    position: absolute;
+    bottom: 30px;
+    right: 50px;
+    width: 30px;
+    height: 30px;
+    background: url('/public/img/trash.png') no-repeat center;
+    background-size: 80%;
+    background-color: #ffffff;
+    border: 2px solid #ddd;
+    border-radius: 50%; 
+    cursor: pointer;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.notice-delete-button:hover {
+    border: 2px solid #afafaf;
+}

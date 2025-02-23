@@ -1,0 +1,91 @@
+.rate-container {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 50px 100px;
+    background-color: #f9f9f9;
+}
+
+.rate-container h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.rate-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.rate-item {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.rate-writer {
+    font-weight: bold;
+    color: #333;
+    min-width: 100px;
+}
+
+.star-rating {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.rate-add-button, 
+.rate-update-button, 
+.rate-delete-button,
+.rate-save-button,
+.rate-cancel-button  {
+    padding: 8px 12px;
+    font-size: 14px;
+    background: #fff;
+    color: #ff8c00;
+    border: 1px solid #ff8c00;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.rate-add-button:hover,
+.rate-update-button:hover,
+.rate-delete-button:hover,
+.rate-save-button:hover,
+.rate-cancel-button:hover {
+    background: #ff8c00;
+    color: #fff;
+}
+
+.rate-add-button {
+    margin-bottom: 20px;
+}
+
+.rate-button-container {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.rate-edit-input {
+    width: 420px;
+    height: 20px;
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+}
+
+.rate-update-button-container {
+    display: flex;
+    gap: 10px; 
+    align-items: center; 
+}

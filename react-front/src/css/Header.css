@@ -1,0 +1,123 @@
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  max-width: 1200px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo .logo {
+  width: 120px;
+  height: auto;
+  margin-right: 100px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0px 20px;
+  font-size: 16px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #f57c00; /* 포인트 컬러 */
+}
+
+/* 검색 창 */
+.search {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-input {
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  padding: 20px 10px;
+  padding-right: 35px;
+  font-size: 14px;
+  width: 400px;
+  height: 50px;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #aaa;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* 유저 링크 */
+.user-link {
+  font-size: 16px;
+  color: #333;
+  margin-right: 10px;
+}
+
+.user-link:hover {
+  color: #f57c00; /* 포인트 컬러 */
+}
+
+.logout-link {
+  font-size: 16px;
+  color: #999;
+  cursor: pointer;
+}
+
+.logout-link:hover {
+  color: #f57c00; /* 포인트 컬러 */
+}
+
+/* 화면이 1024px 이하로 줄어들면 스타일 조정 */
+@media (max-width: 1024px) {
+  .header-container {
+    flex-direction: column; 
+    align-items: center;
+    text-align: center;
+  }
+
+  nav ul {
+    flex-wrap: wrap; 
+    justify-content: center;
+  }
+
+  nav ul li {
+    margin: 5px 10px; 
+  }
+
+  .search-input {
+    width: 300px; 
+    font-size: 12px;
+  }
+}

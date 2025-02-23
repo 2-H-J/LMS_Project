@@ -1,0 +1,48 @@
+.web-socket-container {
+  width: 600px;
+}
+
+.send-button {
+  background-color: #fff;
+  color: #FF8D00;
+  padding: 10px 20px;
+  border: 1px solid #FF8D00;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+  width: 100px;
+  box-sizing: border-box;
+}
+
+.chat-container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.chat-container p {
+  margin: 5px 0;
+  padding: 8px 12px;
+  border-radius: 10px;
+  max-width: 60%; /* ✅ 메시지 최대 너비 */
+  word-wrap: break-word; /* ✅ 긴 단어 줄바꿈 */
+  font-size: 16px;
+}
+
+/* 본인이 보낸 메시지 (오른쪽 정렬) */
+.me {
+  background-color: #FF8D00;
+  color: #fff;
+  align-self: flex-end;
+  text-align: right;
+}
+
+/* 상대방이 보낸 메시지 (왼쪽 정렬) */
+.others {
+  background-color: #e0e0e0;
+  color: #000;
+  align-self: flex-start;
+  text-align: left;
+}

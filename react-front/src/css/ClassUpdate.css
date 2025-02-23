@@ -1,0 +1,212 @@
+/* 전체 배경 */
+.class-update-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+/* 모달 컨테이너 */
+.class-update-container {
+    width: 35vw;
+    background: #FFFFFF;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 50px;
+}
+
+/* 헤더 컨테이너 */
+.class-update-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    padding-bottom: 10px; /* 아래 여백 추가 */
+}
+
+/* 강의 수정 */
+.class-update-title {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: start;
+}
+
+
+.class-update-close-button {
+    background-image: url('/public/img/x.png');
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+/* 카테고리 드롭다운 */
+.class-update-category-select {
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 5px;
+    background: #FAFAFA;
+    border: 1px solid #D9D9D9;
+    width: 30%;
+    margin-bottom: 15px;
+}
+
+.class-update-form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* 강의 등록 제목 */
+.class-update-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: #000;
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* 카테고리 선택 */
+.class-update-category-select {
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 5px;
+    background: #FAFAFA;
+    border: 1px solid #D9D9D9;
+}
+
+.class-update-label-title,
+.class-update-label-description {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* 입력 필드 */
+.class-update-input, .class-update-textarea {
+    width: 100%;
+    font-size: 15px;
+    padding: 10px;
+    border: 1px solid #D9D9D9;
+    border-radius: 5px;
+    background: #FAFAFA;
+    margin-bottom: 10px;
+}
+
+.class-update-input {
+    height: 40px;
+}
+
+.class-update-textarea {
+    height: 150px;
+    margin-top: 10px;
+    resize: none;
+    width: auto;
+}
+
+
+.class-update-thumbnail-wrapper {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* 썸네일 업로드 텍스트 */
+.class-update-thumbnail-label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 썸네일 취소 버튼 항상 보이도록 */
+.remove-thumbnail-btn {
+    background: none;
+    border: none;
+    color: #000;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-left: 90px;
+    visibility: visible;
+}
+
+/* 썸네일 드래그 앤 드롭 영역 */
+.class-update-thumbnail {
+    position: relative;
+    border: 2px dashed #D9D9D9;
+    border-radius: 10px;
+    text-align: center;
+    padding: 0;
+    cursor: pointer;
+    background: #FAFAFA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: calc(200px *2 / 3);
+    margin-left: 0;
+    overflow: hidden;
+}
+
+/* 드래그 앤 드롭 아이콘 */
+.thumbnail-plus {
+    font-size: 48px;
+    font-weight: bold;
+    color: #D9D9D9;
+}
+
+/* 썸네일 미리보기 이미지 크기 조정 */
+/* .thumbnail-preview img {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: none;
+} */
+.thumbnail-preview img {
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    max-height: 200px;
+    object-fit: contain; /* 썸네일이 영역 내에서 비율 유지 */
+    border-radius: 5px;
+    border: none;
+}
+
+
+/* 안내 문구 */
+.thumbnail-guide {
+    font-size: 12px;
+    color: #FF8D00;
+    margin: 15px 0px;
+    text-align: left;
+    white-space: normal;
+    line-height: 1.5;
+    padding-left: 15px;
+}
+
+
+
+/* 등록 버튼 */
+.class-update-submit {
+    width: 70px;
+    height: 35px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #FF8D00;
+    border: none;
+    color: #FFFFFF;
+}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kh.mapper.NoticeMapper">
+
+    <resultMap id="NoticeMap" type="com.kh.dto.NoticeDTO">
+        <id property="noticeNumber" column="NOTICE_NUMBER"/>
+        <result property="noticeTitle" column="NOTICE_TITLE"/>
+        <result property="noticeContent" column="NOTICE_CONTENT"/>
+        <result property="noticeCreateTime" column="NOTICE_CREATE_TIME"/>
+        <result property="uno" column="UNO"/>
+        <result property="classNumber" column="CLASS_NUMBER"/>
+    </resultMap>
+
+    <select id="selectNoticeList" parameterType="int" resultMap="NoticeMap">
+        SELECT 
+            NOTICE_NUMBER,
+            NOTICE_TITLE,
+            NOTICE_CONTENT,
+            NOTICE_CREATE_TIME,
+            UNO,
+            CLASS_NUMBER
+        FROM NOTICE
+        WHERE CLASS_NUMBER = #{classNumber}
+        ORDER BY NOTICE_CREATE_TIME DESC
+    </select>
+
+    <!-- 자동 증가된 공지 번호 조회 -->
+    <select id="selectNextNoticeNumber" resultType="int">
+        SELECT NOTICE_SEQ.NEXTVAL FROM DUAL
+    </select>
+
+    <!-- 공지사항 등록 -->
+    <insert id="insertNotice" parameterType="com.kh.dto.NoticeDTO">
+        INSERT INTO NOTICE (NOTICE_NUMBER, NOTICE_TITLE, NOTICE_CONTENT, NOTICE_CREATE_TIME, UNO, CLASS_NUMBER)
+        VALUES (#{noticeNumber}, #{noticeTitle}, #{noticeContent}, CURRENT_TIMESTAMP, #{uno}, #{classNumber})
+    </insert>
+
+    <!-- 공지사항 삭제 -->
+    <delete id="deleteNotice" parameterType="map">
+        DELETE FROM NOTICE
+        WHERE NOTICE_NUMBER = #{noticeNumber}
+    </delete>
+</mapper>

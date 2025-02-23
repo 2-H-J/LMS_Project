@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kh.mapper.RateMapper">
+
+    <resultMap id="rateResultMap" type="com.kh.dto.RateDTO">
+        <id property="rateNumber" column="rate_number"/>
+        <result property="uno" column="uno"/>
+        <result property="classNumber" column="class_number"/>
+        <result property="rateScore" column="rate_score"/>
+        <result property="rateContent" column="rate_content"/>
+        <result property="nickName" column="nickname"/>
+    </resultMap>
+
+    <!-- 수강평 리스트 조회 -->
+    <select id="selectRateList" parameterType="int" resultMap="rateResultMap">
+        SELECT 
+            r.rate_number,
+            r.uno,
+            r.class_number,
+            r.rate_score,
+            r.rate_content,
+            u.nickname
+        FROM rate r
+        JOIN users u ON r.uno = u.uno
+        WHERE r.class_number = #{classNumber}
+    </select>
+
+    <!-- 수강평 등록 -->
+    <insert id="insertRate" parameterType="com.kh.dto.RateDTO">
+        INSERT INTO rate (rate_number, uno, class_number, rate_score, rate_content)
+        VALUES (rate_number_seq.NEXTVAL, #{uno}, #{classNumber}, #{rateScore}, #{rateContent})
+    </insert>
+
+    <!-- 수강평 수정 -->
+    <update id="updateRate" parameterType="com.kh.dto.RateDTO">
+        UPDATE rate
+        SET rate_content = #{rateContent}, rate_score = #{rateScore}
+        WHERE rate_number = #{rateNumber} AND uno = #{uno}
+    </update>
+
+
+    <!-- 수강평 삭제 -->
+    <delete id="deleteRate" parameterType="com.kh.dto.RateDTO">
+        DELETE FROM rate
+        WHERE rate_number = #{rateNumber} AND uno = #{uno}
+    </delete>
+
+    <select id="selectAverageRate" parameterType="int" resultType="int">
+        SELECT NVL(FLOOR(SUM(rate_score) / NULLIF(COUNT(*), 0)), 0)
+        FROM rate
+        WHERE class_number = #{classNumber}
+    </select>
+
+    <update id="updateClassRate" parameterType="map">
+        UPDATE class
+        SET rate = #{rate}
+        WHERE class_number = #{classNumber}
+    </update>
+
+
+</mapper>

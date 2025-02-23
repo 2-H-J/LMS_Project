@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kh.mapper.TeacherMapper">
+
+    <resultMap id="TeacherResultMap" type="com.kh.dto.TeacherDTO">
+        <id property="uno" column="uno"/>
+        <result property="teacherPhone" column="teacher_phone"/>
+        <result property="teacherEmail" column="teacher_email"/>
+        <result property="teacherAvailableTime" column="teacher_available_time"/>
+        <result property="teacherContent" column="teacher_content"/>
+        <result property="name" column="name"/>
+        <result property="profileimg" column="profileimg"/>
+    </resultMap>
+
+    <!-- 강사 정보 조회 -->
+    <select id="getTeacherProfile" parameterType="string" resultMap="TeacherResultMap">
+        SELECT 
+		    u.uno, 
+		    t.teacher_phone, 
+		    t.teacher_email, 
+		    t.teacher_available_time, 
+		    t.teacher_content, 
+		    u.name,
+		    u.profileimg
+		FROM users u
+		LEFT JOIN teacher t ON u.uno = t.uno
+		WHERE u.uno = #{uno}
+    </select>
+	<select id="checkTeacherInfo" parameterType="string" resultType="int">
+		select count(*) from teacher where uno = #{uno}
+	</select>
+	<insert id="insertTeacherProfile" parameterType="com.kh.dto.TeacherDTO">
+		INSERT INTO teacher (uno, teacher_phone, teacher_email, teacher_available_time, teacher_content)
+    	VALUES (#{uno}, #{teacherPhone}, #{teacherEmail}, #{teacherAvailableTime}, #{teacherContent})
+	</insert>
+	<update id="updateTeacherProfile" parameterType="com.kh.dto.TeacherDTO">
+	    UPDATE teacher
+	    SET teacher_phone = #{teacherPhone},
+	        teacher_email = #{teacherEmail},
+	        teacher_available_time = #{teacherAvailableTime},
+	        teacher_content = #{teacherContent}
+	    WHERE uno = #{uno}
+	</update>
+</mapper>

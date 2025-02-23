@@ -1,0 +1,116 @@
+.quiz-container {
+  text-align: center;
+  background-color: #F5F5F5;
+  padding: 20px;
+  height: 100vh; /* 화면 전체 높이 사용 */
+  
+}
+
+.quiz-content, .quiz-result {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 가로 중앙 정렬 */
+  gap: 10px;
+}
+.quiz-result{
+  padding-top: 100px;
+}
+.quiz-content h3 {
+  font-size: 18px;
+}
+
+.quiz-content hr {
+  width: 100%;
+}
+.quiz-content h2 {
+  font-size: 32px;
+  margin: 20px;
+}
+
+.quiz-content .chapter-name {
+  width: 100%; /* 부모의 너비에 맞추기 */
+  text-align: left; /* 왼쪽 정렬 */
+  font-size: 16px;
+  margin: 0px;
+  font-weight: bold;
+  padding-left: 100px;
+}
+.quiz-content .quiz-progress {
+  width: 100%; /* 부모의 너비에 맞추기 */
+  text-align: right; /* 왼쪽 정렬 */
+  margin-right: 100px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.quiz-options {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.quiz-button {
+  width: 150px;
+  height: 180px;
+  font-size: 100px;
+  padding: 15px 30px;
+  border: none;
+  cursor: pointer;
+  background-color: #FFF8E8;
+  border: 2px solid orange;
+  color: orange;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.quiz-button.selected, .quiz-button:hover {
+  background-color: orange;
+  color: white;
+}
+
+.quiz-explanation {
+  width: 50%;
+  height: 10%;
+  background-color: white;
+  padding: 80px 100px;
+  border-radius: 8px;
+  margin-top: 20px;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  text-align: left; /* 텍스트를 왼쪽 정렬 */
+  gap: 10px;
+}
+
+.quiz-buttons button, .quiz-exit-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  background-color: orange;
+  color: white;
+  border-radius: 8px;
+}
+
+.quiz-buttons button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+.quiz-result-title, .quiz-result-progress{
+  font-size: 36px;
+}
+.quiz-result-icon {
+  width: 200px; /* 아이콘의 가로 크기 */
+  height: 200px; /* 아이콘의 세로 크기 */
+  background: url('/public/img/quiz_result.png') no-repeat center;
+  background-size: contain; /* 이미지 비율에 맞춰 크기 조정 */
+  background-repeat: no-repeat;
+  margin-bottom: 10px; /* 아이콘과 텍스트 사이의 간격 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

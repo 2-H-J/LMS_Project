@@ -1,0 +1,98 @@
+/* 전체 배경 */
+.notice-insert-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+
+
+/* 모달 컨테이너 */
+.notice-insert-container {
+    width: 500px;
+    height: 400px;
+    background: #FFFFFF;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 0px;
+}
+
+.notice-insert-form {
+    width: 500px;
+}
+
+/* 제목 입력 필드 */
+.notice-insert-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: #000;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+/* 공지사항 제목 */
+.notice-insert-input {
+    width: 480px;
+    font-size: 15px;
+    padding: 10px;
+    border: 1px solid #D9D9D9;
+    border-radius: 5px;
+    background: #FAFAFA;
+    margin-bottom: 10px;
+    height: 45px;
+}
+
+/* 공지사항 내용 */
+.notice-insert-textarea {
+    width: 480px;
+    font-size: 15px;
+    padding: 10px;
+    border: 1px solid #D9D9D9;
+    border-radius: 5px;
+    background: #FAFAFA;
+    margin-bottom: 10px;
+    height: 200px;
+    resize: none;
+}
+
+/* 버튼 그룹 (중앙 정렬, 버튼 간격 조정) */
+.notice-insert-button-group {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+    width: 100%;
+    max-width: 150px;
+}
+
+/* 취소 버튼 */
+.notice-insert-cancel {
+    width: 70px;
+    height: 35px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    color: #000;
+}
+
+/* 등록 버튼 */
+.notice-insert-submit {
+    width: 70px;
+    height: 35px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #FF8D00;
+    border: none;
+    color: #FFFFFF;
+}

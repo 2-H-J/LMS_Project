@@ -1,0 +1,186 @@
+.dashboard-container {
+    margin: 0px auto;
+    background-color: #f0f0f0;
+    padding: 50px;
+}
+
+.dashboard-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0px;
+    text-align: center;
+    padding: 30px 0px;
+}
+
+.dashboard-toptitle {
+    width: 200px;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px;
+}
+
+
+.dashboard-class-list{
+    width: 600px;
+    margin: 0px auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.dashboard-teacherClass-container {
+    width: 80%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: start;
+    gap: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.dashboard-class-header {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: start;
+    gap: 10px;
+}
+
+.dashboard-class-header > p {
+    font-size: 12px;
+    color: #777;
+}
+
+.dashboard-class-info {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 250px;
+}
+
+.dashboard-class-info > p {
+    margin: 0px;
+    font-size: 14px;
+}
+
+.dashboard-student {
+    width: 960px;
+    margin: 0px auto;
+}
+
+/* .dashboard-enrolled-course {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-flow: row wrap;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.dashboard-recentClass-card {
+    width: 200px;
+    padding: 20px;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.dashboard-class-thumbnail {
+    width: 180px;
+    height: 120px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    object-fit: cover;
+} */
+
+.dashboard-enrolled-course {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.dashboard-recentClass-card {
+    width: 180px;
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+.dashboard-class-thumbnail {
+    width: 180px;
+    height: 120px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    object-fit: cover;
+}
+
+
+.dashboard-class-info {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+}
+
+.dashboard-recentClass-title {
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dashboard-recentClass-date {
+    font-size: 12px;
+    color: #777;
+    margin-top: 5px;
+}
+
+/* 최근 시청한 영상 가로 스크롤 스타일 */
+.dashboard-recent-videos {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px 0;
+    scroll-behavior: smooth;
+}
+
+.dashboard-video-card {
+    width: 180px;
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+.dashboard-video-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}

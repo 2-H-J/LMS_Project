@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kh.mapper.QNABoardMapper">
+
+    <resultMap id="QNABoardMap" type="com.kh.dto.QNABoardDTO">
+        <result property="askTitle" column="ASK_TITLE"/>
+        <result property="askContent" column="ASK_CONTENT"/>
+        <result property="askCreateTime" column="ASK_CREATE_TIME"/>
+        <result property="askUpdateTime" column="ASK_UPDATE_TIME"/>
+        <result property="askNumber" column="ASK_NUMBER"/>
+        <result property="classNumber" column="CLASS_NUMBER"/>
+        <result property="uno" column="UNO"/>
+        <result property="chapterNumber" column="CHAPTER_NUMBER"/>
+        <result property="name" column="NAME"/>
+        <result property="chapterName" column="CHAPTER_NAME"/>
+    </resultMap>
+
+    <select id="selectQnaBoards" parameterType="int" resultMap="QNABoardMap">
+        SELECT 
+            q.ASK_TITLE,
+            q.ASK_CONTENT,
+            q.ASK_CREATE_TIME,
+            q.ASK_UPDATE_TIME,
+            q.CLASS_NUMBER,
+            q.ASK_NUMBER,
+            q.UNO,
+            u.NAME AS NAME,
+            q.CHAPTER_NUMBER,
+            c.CHAPTER_NAME
+        FROM 
+            QNA_BOARD q
+        LEFT JOIN USERS u ON q.UNO = u.UNO
+        LEFT JOIN CHAPTER c ON q.CHAPTER_NUMBER = c.CHAPTER_NUMBER
+        WHERE 
+            q.CLASS_NUMBER = #{classNumber}
+        ORDER BY q.ASK_CREATE_TIME DESC
+    </select>
+
+    <select id="selectNextAskNumber" resultType="int">
+        SELECT QNA_ASK_NUMBER_SEQ.NEXTVAL FROM DUAL
+    </select>
+
+    <insert id="insertAsk" parameterType="com.kh.dto.QNABoardDTO">
+    INSERT INTO QNA_BOARD (
+        ASK_NUMBER, ASK_TITLE, ASK_CONTENT, ASK_CREATE_TIME, ASK_UPDATE_TIME,
+        CLASS_NUMBER, UNO, CHAPTER_NUMBER
+    ) VALUES (
+        #{askNumber}, 
+        #{askTitle}, #{askContent}, SYSDATE, SYSDATE,
+        #{classNumber}, #{uno}, #{chapterNumber}
+    )
+</insert>
+
+    <!-- 질문 수정 -->
+    <update id="updateAsk" parameterType="com.kh.dto.QNABoardDTO">
+        UPDATE QNA_BOARD
+        SET ASK_TITLE = #{askTitle},
+            ASK_CONTENT = #{askContent},
+            ASK_UPDATE_TIME = SYSDATE
+        WHERE ASK_NUMBER = #{askNumber}
+    </update>
+
+    <!-- 질문 삭제 -->
+    <delete id="deleteAsk" parameterType="int">
+        DELETE FROM QNA_BOARD
+        WHERE ASK_NUMBER = #{askNumber}
+    </delete>
+
+    <!-- 최신 질문 3개 조회 -->
+    <select id="selectLatestAsks" parameterType="String" resultMap="QNABoardMap">
+        SELECT 
+            ASK_NUMBER,
+            ASK_TITLE,
+            ASK_CONTENT,
+            ASK_CREATE_TIME,
+            UNO
+        FROM QNA_BOARD
+        WHERE UNO = #{uno}
+        ORDER BY ASK_CREATE_TIME DESC
+        FETCH FIRST 3 ROWS ONLY
+</select>
+
+
+</mapper>

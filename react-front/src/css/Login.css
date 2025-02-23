@@ -1,0 +1,128 @@
+.login_container {
+  display: flex;
+  height: 100vh;
+}
+
+.login_logo_container {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-image: url('/public/img/login.png');
+}
+
+.login_form_container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* login title */
+.login_title{
+  text-align: center;
+  padding-bottom: 300px;
+  font-size: 100px;
+  font-weight: bold;
+}
+
+/*login_desc*/
+.login_desc{
+  width: 420px;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+/* login type */
+.login_type{
+  margin: 0;
+  padding: 0;
+}
+.login_type button{
+  width: 180px;
+  height: 45px;
+  border-radius: 5px;
+  border: none;
+  margin: 20px 0px;
+  font-weight: bold;
+}
+active{
+  background-color: #FF8D00;
+  color: white;
+}
+
+/* input */
+input{
+  width: 420px;
+  height: 60px;
+  margin: 10px 0;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 1px solid #FF8D00;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.password {
+  position: relative;
+}
+
+
+/* 눈 아이콘 */
+.password-toggle {
+  position: absolute;
+  right: 15px;  
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.password-toggle img {
+  width: 25px;
+  height: 25px;
+}
+
+.password input[type="password"] {
+  padding-right: 40px;  
+}
+
+/* button */
+.login-form button {
+  width: 420px;
+  height: 60px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #FF8D00;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* find_pwd */
+.find_pwd{
+  align-self: flex-end;
+  text-decoration: none;
+  color: #777777;
+}
+/* login button */
+.login_btn {
+  background-color: #FF8D00;
+  color: white;
+}
+/* register button */
+.register_btn {
+  background-color: white;
+  color: #FF8D00;
+}

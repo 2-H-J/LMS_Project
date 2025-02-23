@@ -1,0 +1,134 @@
+.class-container {
+  max-width: 1200px;
+  background-color: #f9f9f9;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.class-header {
+  padding: 30px;
+  margin-bottom: 20px;
+  background: #fff;
+}
+
+.class-category {
+  background: #fff8e8;
+  color: #ff8d00;
+  padding: 5px 10px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.class-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.class-instructor {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.class-description {
+  margin: 30px 0;
+  font-size: 16px;
+}
+
+.class-rate {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.class-rate .review {
+  margin-left: 10px;
+  text-decoration: none;
+  color: #ff8c00;
+  font-weight: bold;
+}
+
+.class-rate .review:hover {
+  text-decoration: underline;
+}
+
+.class-menu {
+  display: flex;
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.class-menu button {
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.class-menu button.active,
+.class-menu button:hover {
+  color: #ff8c00;
+  border-bottom: 3px solid #ff8c00;
+}
+
+.instructor-controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.class-modify-button,
+.class-delete-button {
+  background-color: #ff8c00;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.class-modify-button:hover,
+.class-delete-button:hover {
+  background-color: #e28411;
+}
+
+.class-enroll-button, .class-cancel-button{
+  background-color: #ff8c00;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.class-rate {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.class-instructor-info {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.class-instructor-link {
+  font-size: 14px;
+  color: #000;
+  text-decoration: 2px underline solid #000;
+}
+
+.class-instructor-link:hover {
+  color: #ff8c00;
+  text-decoration: 2px underline solid #ff8c00;
+}

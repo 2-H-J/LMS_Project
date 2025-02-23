@@ -1,0 +1,59 @@
+.rate-write-container {
+    width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.rate-write-container h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.rate-write-container label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.rate-write-container input,
+.rate-write-container select,
+.rate-write-container textarea {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.rate-write-container textarea {
+    resize: none;
+    width: 100%;
+    height: 150px;
+    box-sizing: border-box;
+}  
+
+.rate-write-button {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.rate-write-container button {
+    width: 80px;
+    padding: 10px;
+    background: #fff;
+    color: #ff8c00;
+    border: 1px solid #ff8c00;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.rate-write-container button:hover {    
+    background: #ff8c00;
+    color: #fff;
+}

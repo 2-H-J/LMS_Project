@@ -1,0 +1,32 @@
+.delete-container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #EEEEEE;
+    width: 500px;
+    height: 500px;
+    margin: 100px auto;
+    border: none;
+  }
+  
+  .delete-container h1 {
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .delete-container p {
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  .delete-container button {
+    width: 100px;
+    height: 50px;
+    background-color: #7e7e7e;
+    border: none;
+    color: red;
+    font-size: 20px;
+    cursor: pointer;
+  }

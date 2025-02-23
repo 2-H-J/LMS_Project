@@ -1,0 +1,29 @@
+.changePwd{
+    margin-bottom: 10px;
+    text-align: left;
+}
+.changePwd button{
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.changePwd ul{
+    margin-top: 50px;
+}
+
+.changePwd li{
+    color: #FF8D00;
+}
+.changePwd label{
+    color: #777777;
+}
+.changePwd .btn_container{
+margin-top: 50px;    
+}
+.changePwd .input_container{
+    margin-top: 50px;
+}
+
+.changePwd .required{
+    color: #FF8D00;
+}

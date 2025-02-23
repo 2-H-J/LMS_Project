@@ -1,0 +1,9 @@
+.star-rating {
+    display: flex;
+    gap: 5px;
+}
+
+.star-icon {
+    width: 20px;  
+    height: 20px;
+}

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kh.mapper.UsersProgressMapper">
+
+    <resultMap type="com.kh.dto.UsersProgressDTO" id="usersProgressMap">
+        <id column="users_progress_number" property="usersProgressNumber" />
+        <result column="uno" property="uno" />
+        <result column="class_number" property="classNumber" />
+        <result column="completion_status" property="completionStatus" />
+        <result column="completion_rate" property="completionRate" />
+        <result column="progress_update_time" property="progressUpdateTime" jdbcType="TIMESTAMP"/>
+        <result column="title" property="title"/>
+        <result column="instructor_name" property="instructorName"/>
+    </resultMap>
+
+    <select id="checkProgress" resultType="int">
+        SELECT COUNT(*)
+        FROM USERS_PROGRESS 
+        WHERE UNO = #{uno} 
+        AND CLASS_NUMBER = #{classNumber}
+    </select>
+
+    <!-- 수강중인 강의 조회 -->
+    <select id="selectRecentClasses" parameterType="String" resultMap="usersProgressMap">
+        SELECT 
+            up.USERS_PROGRESS_NUMBER,
+            up.UNO,
+            up.CLASS_NUMBER,
+            up.COMPLETION_STATUS,
+            up.COMPLETION_RATE,
+            up.PROGRESS_UPDATE_TIME,
+            v.TITLE,
+            v.INSTRUCTOR_NAME,
+            v.THUMBNAIL
+        FROM USERS_PROGRESS up
+        JOIN CLASS_WITH_INSTRUCTOR v ON up.CLASS_NUMBER = v.CLASS_NUMBER
+        WHERE up.UNO = #{uno}
+        ORDER BY up.PROGRESS_UPDATE_TIME DESC
+        FETCH FIRST 5 ROWS ONLY
+    </select>
+
+    <insert id="applicationInsert">
+        INSERT INTO USERS_PROGRESS (USERS_PROGRESS_NUMBER, UNO, CLASS_NUMBER, COMPLETION_STATUS, COMPLETION_RATE, PROGRESS_UPDATE_TIME)
+        VALUES (USERS_PROGRESS_NUMBER_SEQ.NEXTVAL, #{uno}, #{classNumber}, 1, 0, SYSDATE)
+    </insert>
+
+    <delete id="cancelProgress">
+        DELETE FROM USERS_PROGRESS
+        WHERE UNO = #{uno} 
+        AND CLASS_NUMBER = #{classNumber}
+    </delete>
+    
+    <select id="getEnrolledClasses" parameterType="String" resultMap="usersProgressMap">
+       SELECT * FROM
+		    class c JOIN users_progress up ON c.uno = up.uno
+		WHERE up.uno = #{uno}
+		ORDER BY up.PROGRESS_UPDATE_TIME DESC
+    </select>
+
+</mapper>

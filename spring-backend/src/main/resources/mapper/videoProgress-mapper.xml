@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kh.mapper.VideoProgressMapper">
+
+    <!-- 시청 기록 매핑 -->
+    <resultMap id="videoProgressMap" type="com.kh.dto.VideoProgressDTO">
+        <id property="videoProgressNumber" column="VIDEO_PROGRESS_NUMBER"/>
+        <result property="uno" column="UNO"/>
+        <result property="videoNumber" column="VIDEO_NUMBER"/>
+        <result property="videoTitle" column="VIDEO_TITLE"/>
+        <result property="videoId" column="VIDEO_ID"/>
+        <result property="videoDuration" column="VIDEO_DURATION"/>
+        <result property="lastWatchedTime" column="LAST_WATCHED_TIME"/>
+        <result property="watchedPercentage" column="WATCHED_PERCENTAGE"/>
+        <result property="classTitle" column="CLASS_TITLE"/>
+        <result property="instructorName" column="INSTRUCTOR_NAME"/>
+        <result property="videoProgressUpdateTime" column="VIDEO_PROGRESS_UPDATE_TIME"/>
+        <result property="thumbnail" column="THUMBNAIL"/>
+    </resultMap>
+
+
+    <!-- VIDEO 테이블에서 영상 길이 가져오기 -->
+    <select id="getVideoDuration" resultType="double">
+        SELECT VIDEO_DURATION FROM VIDEO WHERE VIDEO_NUMBER = #{videoNumber}
+    </select>
+
+
+    <!-- 사용자의 특정 영상 시청 기록 조회 -->
+    <select id="findProgressByUserAndVideo" resultMap="videoProgressMap">
+        SELECT * FROM VIDEO_PROGRESS 
+        WHERE UNO = #{uno} AND VIDEO_NUMBER = #{videoNumber}
+    </select>
+
+    <!-- 새로운 시청 기록 추가 -->
+    <insert id="insertProgress">
+        INSERT INTO VIDEO_PROGRESS 
+        (VIDEO_PROGRESS_NUMBER, UNO, VIDEO_NUMBER,  LAST_WATCHED_TIME, WATCHED_PERCENTAGE, 
+         VIDEO_PROGRESS_UPDATE_TIME, VIDEO_DURATION, COMPLETED)
+        VALUES 
+        (VIDEO_PROGRESS_NUMBER_SEQ.NEXTVAL, #{uno}, #{videoNumber}, 
+        COALESCE(#{lastWatchedTime}, 0), 
+        COALESCE(#{watchedPercentage}, 0), 
+        SYSTIMESTAMP, 
+        #{videoDuration},
+        #{completed})
+    </insert>
+ 
+    <!-- 기존 시청 기록 업데이트 -->
+    <update id="updateProgress">
+        UPDATE VIDEO_PROGRESS 
+        SET 
+            LAST_WATCHED_TIME = COALESCE(#{lastWatchedTime}, 0), 
+            WATCHED_PERCENTAGE = COALESCE(#{watchedPercentage}, 0), 
+            VIDEO_PROGRESS_UPDATE_TIME = SYSTIMESTAMP,
+            VIDEO_DURATION = #{videoDuration},
+            COMPLETED = #{completed}
+        WHERE UNO = #{uno} AND VIDEO_NUMBER = #{videoNumber}
+    </update>
+
+    <!-- 최신 영상 목롤조힣 -->
+    <select id="findRecentVideosByUser" resultMap="videoProgressMap">
+        SELECT VIDEO_PROGRESS_NUMBER, UNO, VIDEO_NUMBER, VIDEO_TITLE, VIDEO_ID, VIDEO_DURATION, 
+            LAST_WATCHED_TIME, WATCHED_PERCENTAGE, VIDEO_PROGRESS_UPDATE_TIME, 
+            CLASS_TITLE, INSTRUCTOR_NAME 
+        FROM RECENT_WATCHED_VIDEOS 
+        WHERE UNO = #{uno} 
+        ORDER BY VIDEO_PROGRESS_UPDATE_TIME DESC
+    </select>
+
+
+
+
+
+
+</mapper>

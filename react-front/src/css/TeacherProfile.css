@@ -1,0 +1,113 @@
+.teacher-background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background-color: #f8f9fa;
+}
+
+.teacher-profile-container {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  height: 600px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+.teacher-info-left {
+  flex: 1;
+  text-align: center;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* 세로 중앙 정렬 */
+  height: 95%; /* 부모 높이 기준 */
+}
+
+.profile-pic {
+  background-color: #e0e0e0;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 10px;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.teacher-name {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.teacher-email, .phone, .available-time {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.email-icon, .phone-icon, .time-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.teacher-input {
+  border: 1px solid #ccc;
+  padding: 5px;
+  font-size: 16px;
+  width: 200px;
+}
+
+.teacher-info-right {
+  flex: 2;
+  padding: 20px;
+}
+
+
+.teacher-info-right p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  white-space: pre-line;
+}
+.teacher-info-right h2 {
+  text-align: center;
+}
+
+.teacher-save-button {
+  display: block;
+  width: 100px;
+  margin: 20px auto 0;
+  padding: 10px;
+  background: #ff8c00;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.teacher-save-button:hover {
+  background: #e07b00;
+}
+.teacher-content {
+  text-align: center; /* 텍스트 가운데 정렬 */
+  display: flex;
+  justify-content: center; /* 컨텐츠 가운데 정렬 */
+  align-items: center;
+  flex-direction: column; /* 여러 줄일 경우 위아래 정렬 */
+  width: 100%;
+}

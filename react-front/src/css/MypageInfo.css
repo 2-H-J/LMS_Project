@@ -1,0 +1,207 @@
+.mypage-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 50px;
+  background-color: #fff;
+  margin: 40px auto;
+  width: 1000px;
+  align-items: center;
+  justify-content: space-around;
+  height: 600px;
+}
+
+.divider {
+  width: 1px;
+  height: 100%;
+  background-color: #ddd;
+  margin: 0 10px;
+}
+
+.profile-section {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 250px;
+  height: 543px;
+}
+
+.profile-section h1 {
+  text-align: center;
+}
+
+
+.profile-image {
+  /* 원하는 크기를 일단 정사각형으로 고정 */
+  width: 150px;
+  height: 150px;
+
+  /* 원형으로 만들기 위해서 반지름을 50%로 설정 */
+  border-radius: 50%;
+
+  /* 이미지를 ‘비율을 유지한 채’ 영역에 꽉 채우되,
+     영역 밖으로 넘치는 부분은 잘라 버림 */
+  object-fit: cover;
+
+  /* 불필요한 여백이나 줄바꿈 방지를 위해 block으로 선언 */
+  display: block;
+
+  /* 혹시 이미지 위치를 조절하고 싶다면 (중앙 기준으로 잘라내기) */
+  object-position: center;
+}
+
+
+.profile-section h1 {
+  font-size: 20px;
+  line-height: 1.8;
+  margin: 10px 0px;
+}
+
+.profile-section label {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+
+}
+
+.profile-buttons {
+  width: 180px;
+  height: 100px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.profile-button {
+  box-sizing: border-box;
+  width: 180px;
+  height: 50px;
+  margin: 0px 0px 10px 0px;
+  padding: 0px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-weight: bold;
+
+}
+
+.removeprofile-button {
+  box-sizing: border-box;
+  width: 180px;
+  height: 50px;
+  padding: 0px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+[class^="info"] {
+  width: 601px;
+}
+
+.info-section {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0px;
+  gap: 30px;
+}
+
+.info-section h1 {
+  width: 100px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.info-block {
+  height: 80px;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.info-block span {
+  width: 100px;
+  height: 50px;
+  box-sizing: border-box;
+  align-content: center;
+
+}
+
+.info-block p {
+  width: 420px;
+  height: 50px;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px 20px;
+  align-content: center;
+}
+
+
+.info-block button[class$="-edit"] {
+  padding: 10px;
+  height: 40px;
+  font-size: 14px;
+  background-color: #FFFFFF;
+  border: 1px solid #BBBBBB;
+  border-radius: 10px;
+}
+
+.info-block input {
+  box-sizing: border-box;
+  padding: 0px 20px;
+  margin: 0px;
+  width: 500px;
+}
+
+.btn-block {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  justify-content: end;
+  width: 600px;
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.btn-block button[class$="-update"] {
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.edit-warning {
+  width: 600px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.edit-warning a {
+  text-decoration: none;
+}
+
+
+.edit-warning a:nth-child(1) {
+  color: red;
+  text-decoration: underline;
+}
+
+.edit-warning a:nth-child(2) {
+  color: #ff8c00;
+  font-weight: bold;
+}
