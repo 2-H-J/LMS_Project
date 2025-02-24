@@ -25,14 +25,32 @@ LMS 프로젝트에 대한 간단한 소개
 배포
 02/21
 발표
-개발 도구
-Figma
 
-PhotoShop
+  ### 개발 도구
 
-Visual Studio Code
+- Figma
+    
+    ![figma_logo.png](attachment:f5e29fac-ae29-4b9c-b5a4-68de6c9ba0e3:figma_logo.png)
+    
 
-Spring Tool Suite 4
+- PhotoShop
+    
+    ![photoshop.png](attachment:42a1d201-2ee5-43e3-a661-7e9abff3f2e7:photoshop.png)
+    
+
+- Visual Studio Code
+    
+    ![vsc_logo.png](attachment:a5c9cbf3-220b-4a53-88cf-7346a93b1071:vsc_logo.png)
+    
+
+- Spring Tool Suite 4
+    
+    ![spring_logo.png](attachment:8b279f64-221d-4535-bb00-b72bc20d6e8f:spring_logo.png)
+    
+
+---
+
+### 기술 스택
 
 기술 스택
 Programming Languages
@@ -47,28 +65,31 @@ Cloud Services
 AWS
 API
 카카오 로그인 API,
-주요 기능
-로그인 및 회원가입 (카카오 api 활용)
-아이디 비밀번호 찾기 (이메일 인증번호 받기 활용)
-메인페이지
-최신 강의 조회
-사이드바에서 미니 대시보드
-강의 목록
-카테고리별 조회
-강사 - 강의 등록
-강의 상세 페이지
-강사 - 강의 편집 및 삭제
-수강생 - 수강 신청 및 취소
-강사 소개 페이지
-하위 메뉴
-공지사항, Q&A, 수강평, 채팅
-챕터 별 퀴즈 풀기
-강의 영상 시청 (유튜브 api 활용)
-대시보드
-강사-등록된 강의 조회/수강생-수강 중인 강의 조회, 진행률
-마이페이지
-정보 수정 및 탈퇴
-구현 화면
+
+### 주요 기능
+
+- 로그인 및 회원가입 (카카오 api 활용)
+    - 아이디 비밀번호 찾기 (이메일 인증번호 받기 활용)
+- 메인페이지
+    - 최신 강의 조회
+    - 사이드바에서 미니 대시보드
+- 강의 목록
+    - 카테고리별 조회
+    - 강사 - 강의 등록
+- 강의 상세 페이지
+    - 강사 - 강의 편집 및 삭제
+    - 수강생 - 수강 신청 및 취소
+    - 강사 소개 페이지
+    - 하위 메뉴
+        - 공지사항, Q&A, 수강평, 채팅
+- 챕터 별 퀴즈 풀기
+- 강의 영상 시청 (유튜브 api 활용)
+- 대시보드
+    - 강사-등록된 강의 조회/수강생-수강 중인 강의 조회, 진행률
+- 마이페이지
+    - 정보 수정 및 탈퇴
+      
+###구현 화면
 로그인
 
 카카오 로그인 api 활용, 아이디, 비밀번호 찾기 기능
