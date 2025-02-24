@@ -39,7 +39,7 @@ LMS 프로젝트에 대한 간단한 소개
 - Spring Tool Suite 4
     
 - PhotoShop
-- 
+
 ---
 
 ### 기술 스택
@@ -47,16 +47,21 @@ LMS 프로젝트에 대한 간단한 소개
 기술 스택
 Programming Languages
 JavaScript, Java
+
 Frameworks
 React, Spring
+
 Databases
 Oracle
+
 Version Control
 Git
+
 Cloud Services
 AWS
+
 API
-카카오 로그인 API,
+카카오 로그인 API, YouTube Data API v3
 
 ### 주요 기능
 
