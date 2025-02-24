@@ -30,24 +30,16 @@ LMS 프로젝트에 대한 간단한 소개
 
 - Figma
     
-    ![figma_logo.png](attachment:f5e29fac-ae29-4b9c-b5a4-68de6c9ba0e3:figma_logo.png)
-    
-
-- PhotoShop
-    
-    ![photoshop.png](attachment:42a1d201-2ee5-43e3-a661-7e9abff3f2e7:photoshop.png)
-    
-
+    ![Image](https://github.com/user-attachments/assets/0f16869a-43d1-42b0-ae7b-2d839d374acf)
+  
 - Visual Studio Code
     
-    ![vsc_logo.png](attachment:a5c9cbf3-220b-4a53-88cf-7346a93b1071:vsc_logo.png)
-    
+    ![Image](https://github.com/user-attachments/assets/6488f5e3-9e44-4be7-ae61-b9a8189e0d06)
 
 - Spring Tool Suite 4
     
-    ![spring_logo.png](attachment:8b279f64-221d-4535-bb00-b72bc20d6e8f:spring_logo.png)
-    
-
+- PhotoShop
+- 
 ---
 
 ### 기술 스택
